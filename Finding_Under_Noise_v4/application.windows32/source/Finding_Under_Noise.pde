@@ -45,7 +45,7 @@ void setup ()
   size (displayWidth, displayHeight, P3D);
   sketchFullScreen();
   noCursor();
-  
+
   //initialise the minim object
   minim = new Minim (this);
   in = minim.getLineIn(Minim.STEREO, 512);
@@ -132,30 +132,29 @@ void draw()
   //black background, refreshes screen
   background(0);
 
-  
 
 
-//// L-System -------------------------------------------------
-//  plantMove(); //changes postition of LSystem
+// L-System -------------------------------------------------
+  plantMove(); //changes postition of LSystem
   
-//    allBobs.clear();
-//  Vec3D iniVel = new Vec3D (340,20,0); //_vel
-//  Vec3D v = new Vec3D (plantX,plantY,plantZ); //_loc
+    allBobs.clear();
+  Vec3D iniVel = new Vec3D (340,20,0); //_vel
+  Vec3D v = new Vec3D (plantX,plantY,plantZ); //_loc
   
-//  //bob = new Stick(v, iniVel, totalBranch, "A");
-//  //allBobs.add(bob);
+  bob = new Stick(v, iniVel, totalBranch, "A");
+  allBobs.add(bob);
   
-//  //for(Stick b : allBobs) {
-//  //  b.run();
-//  //}
+  for(Stick b : allBobs) {
+    b.run();
+  }
   
-//  //if (fft.getAvg(40) > addBranchThreshold && totalBranch < 8) {
-//  // totalBranch++;
-//  //}
+  if (fft.getAvg(40) > addBranchThreshold && totalBranch < 8) {
+   totalBranch++;
+  }
   
-//  if (millis() % 10000 > 9920 && totalBranch >1){
-//    totalBranch--;
-//  }
+  if (millis() % 10000 > 9920 && totalBranch >1){
+    totalBranch--;
+  }
 
 
 //particles-----------------------------
@@ -250,6 +249,12 @@ void plantMove(){
 }
 
 
+
+
+
+  
+  
+
 void keyPressed(){
   
   if (keyCode == keyUp){
@@ -325,3 +330,4 @@ void changeVariables(){
     }
     return variable;
   }
+boolean sketchFullScreen(){ return true; }

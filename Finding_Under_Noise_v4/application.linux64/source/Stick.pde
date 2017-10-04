@@ -166,3 +166,4 @@ class Stick {
     directions.add(new PVector(vel.x, vel.y, vel.z));
   }
 }
+

@@ -44,3 +44,4 @@ class Particle {
     return (lifespan < 0.0);
   }
 }
+

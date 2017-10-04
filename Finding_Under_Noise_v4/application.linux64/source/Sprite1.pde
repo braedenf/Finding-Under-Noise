@@ -7,7 +7,7 @@ class Sprite1 {
 
 
   int hVal;
-  int gbVal = 70;
+
   //size determined by volume
   float sSens; 
   float sSens2;
@@ -21,7 +21,7 @@ class Sprite1 {
     fade = get(0, 0, width, height);
     rWidth = width * 0.99;
     rHeight = height * 0.99;
-    hVal = int(random(26,39));
+    hVal = int(random(0,255));
     spriteRadius = map(sprite1Field.size(), 0, maxSprite1, random(50, 70), random(200,240)) ;
     sSens = spriteRadius*0.25/(1+noise);
     sSens2 = spriteRadius/(1+noise);
@@ -70,11 +70,12 @@ class Sprite1 {
 
 
 
-  void render() {  
+  void render() {
+
     strokeWeight(spriteRadius);
     colorMode(HSB);
-    stroke(hVal, gbVal, gbVal, colAlpha);
-    
+    stroke(hVal, 255, 255, colAlpha);
+
 
     /*checks the entire array of bands
      i is the x position in pixils,
@@ -141,14 +142,9 @@ class Sprite1 {
     if (fft.calcAvg(100,600) > colourChangeThreshold) 
     {
       hVal = hVal + 5;
-      gbVal = gbVal * 3;
-      
     }
     if ( hVal > 255) {
       hVal = 0;
-    }
-    if ( gbVal > 255) {
-      gbVal = 70; 
     }
   }
 

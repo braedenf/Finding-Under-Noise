@@ -21,7 +21,7 @@ class Sprite1 {
     fade = get(0, 0, width, height);
     rWidth = width * 0.99;
     rHeight = height * 0.99;
-    hVal = int(random(26,39));
+    hVal = 26;
     spriteRadius = map(sprite1Field.size(), 0, maxSprite1, random(50, 70), random(200,240)) ;
     sSens = spriteRadius*0.25/(1+noise);
     sSens2 = spriteRadius/(1+noise);
@@ -140,8 +140,8 @@ class Sprite1 {
   void changeCol() {
     if (fft.calcAvg(100,600) > colourChangeThreshold) 
     {
-      hVal = hVal + 5;
-      gbVal = gbVal * 3;
+      hVal = hVal + 3;
+      gbVal = gbVal * 2;
       
     }
     if ( hVal > 255) {
